@@ -126,7 +126,7 @@ class DriveAPI {
         range: range,
       }, (err, res) => {
         if (err) return reject('The API returned an error: ' + err);
-        // console.log(res.data.values);
+        console.log(res.data.values);
         const keys = res.data.values[0];
         const transformed = [];
         res.data.values.forEach((row, i) => {
