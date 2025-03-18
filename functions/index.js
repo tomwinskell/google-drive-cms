@@ -8,13 +8,14 @@ import cors from 'cors';
 
 app.listen(() => console.log(`DriveConnector backend listening`));
 
-app.use(cors({ origin: true }));
+app.use(
+  cors({
+    origin: 'https://bowls--bowls-next.us-central1.hosted.app', // Replace with your own domain
+    methods: ['GET', 'POST'],
+  })
+);
 
 const router = express.Router();
-
-app.get('/test', (req, res) => {
-  res.send('You did it! 🥳');
-});
 
 router.get('/', (req, res) => {
   res.sendStatus(200);
