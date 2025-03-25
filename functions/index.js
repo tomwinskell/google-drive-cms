@@ -5,17 +5,18 @@ const API_VERSION = 1;
 import DriveAPI from './driveAPI.js';
 const driveAPI = new DriveAPI();
 import cors from 'cors';
+const router = express.Router();
 
 app.listen(() => console.log(`DriveConnector backend listening`));
 
 app.use(
+  `/v${API_VERSION}`,
   cors({
-    origin: 'https://bowls--bowls-next.us-central1.hosted.app', // Replace with your own domain
-    methods: ['GET', 'POST'],
-  })
+    origin: 'https://mundesleybowls.co.uk',
+    methods: ['GET'],
+  }),
+  router
 );
-
-const router = express.Router();
 
 router.get('/', (req, res) => {
   res.sendStatus(200);
@@ -76,8 +77,6 @@ router.route('/getImage').get((req, res) => {
     res.sendStatus(404);
   }
 });
-
-app.use(`/v${API_VERSION}`, router);
 
 // https://stackoverflow.com/a/21947851
 function onExit(callback) {
