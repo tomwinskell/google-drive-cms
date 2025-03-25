@@ -12,7 +12,7 @@ app.listen(() => console.log(`DriveConnector backend listening`));
 app.use(
   `/v${API_VERSION}`,
   cors({
-    origin: 'https://mundesleybowls.co.uk',
+    origin: 'https://mundesleybowlsclub.co.uk',
     methods: ['GET'],
   }),
   router
